@@ -1,0 +1,29 @@
+#cloud-config
+version: 1
+groups:
+  - admingroup: [root, sys]
+timezone: Europe/Stockholm
+keyboard:
+  layout: sv
+users:
+  - default
+  - name: lollen
+    passwd: $y$j9T$9CsluZwcR181SHPHE2cdQ/$XqsPEIvZ8r9jSiDb.11VTxHs.uzsK50O0C.1h4Ys019
+    groups: users, admin
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+    ssh_import_id:
+      - gh:loloolllool
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4wVeLXcdS6ORNqTqEs5e9WJJ8/rl0vD7SovF1N4/9sDZhQ0Pr+XGnRsvL/rEQrs8LgJOSdKXFXEn7kvFR3+8nR783UnM6dbiifsklwB8W8ruCiAhw6fz4ujzAomZJQByxQmjTGvJQVZL0Kxk0Vqehg/XbkRD4A7tNdMl0HlhQFFQLaxzGu94lDPC2x8EW0DvSCPiozTchMNfEQ1xIQk0xVzL8OCy4DGkBEeRshO+/5AeoJHKawTEPQnc4lj4lnTzRuPhzvAZhFsd4GELwt4s+nyhWw5xBg7nI361k6ItguQOMcxrAHwkQpPa24bjCeYMA9ijiNOQrF8R7mGZeyVXs2JEiozilK/ug2ns3O4xbWcQkX4H7fV43en+xgHUBjVgE/SyExvDE1NUH7x9baxhncHyc2/2qdWAOl1y41aDUnjy5/VQIVPcwCkLo4WybUMtnG8V3gqFMb5VIWVfMU6h/ZvF2r3HXFs7KW/V0Iv8YBWFbh1XitPdPhoJ+i8wETgM= lollen@threadripper
+    gecos: lollen lollson
+    shell: /usr/bin/bash
+write_files:
+  - path: /home/lollen/.hushlogin
+    content: |
+      # All installed and good
+
+runcmd:
+  - [/usr/bin/apt, update]
+  - [export, "DEBIAN_FRONTEND=noninteractive"]
+  - [/usr/bin/apt, upgrade, -y]

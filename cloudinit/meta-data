@@ -1,0 +1,11 @@
+#cloud-config
+# The meta-data section specifies information about the virtual
+# machine, such as its hostname and network settings.
+meta-data:
+  instance-id: ubuntu-22.04
+  local-hostname: ubuntu-22.04
+  network:
+    version: 2
+    ethernets:
+      eth0:
+        dhcp4: true
