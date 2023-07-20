@@ -1,8 +1,8 @@
 #cloud-config
 # The meta-data section specifies information about the virtual
 # machine, such as its hostname and network settings.
-instance-id: dummyinstid
-local-hostname: etthostname
+instance-id: <temphostname>
+local-hostname: <temphostname>
 network:
   version: 2
   ethernets:
